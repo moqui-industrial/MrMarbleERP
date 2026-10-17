@@ -47,7 +47,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== DataDocument Links ========== -->
 
     <moqui.entity.document.DataDocumentLink dataDocumentId="MantleWikiPage" linkSeqId="41" linkSet="marble" label="Wiki Page" urlType="screen"
-            linkUrl="/apps/marble/Wiki/wiki/${wikiSpaceId}/${pagePath?:''}"/>
+            linkUrl="/apps/marble/Wiki/wiki/${wikiSpaceId}/${pagePath||''}"/>
     <moqui.entity.document.DataDocumentLink dataDocumentId="MantleProduct" linkSeqId="41" linkSet="marble" label="Edit Product" urlType="screen"
             linkUrl="/apps/marble/Catalog/Product/EditProduct?productId=${productId}"/>
     <moqui.entity.document.DataDocumentLink dataDocumentId="MantleFacility" linkSeqId="41" linkSet="marble" label="Edit Facility" urlType="screen"
