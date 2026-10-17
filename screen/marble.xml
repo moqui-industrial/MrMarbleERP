@@ -70,19 +70,25 @@ along with this software (see the LICENSE.md file). If not, see
     <widgets>
         <section name="OrgChooserSection" condition="hideNav != 'true'"><widgets>
             <render-mode><text type="html"><![CDATA[
-            <div id="active-org-menu" class="nav navbar-right dropdown">
-                <a id="active-org-menu-link" href="#" class="dropdown-toggle btn btn-default btn-sm navbar-btn" data-toggle="dropdown" title="Organization">
-                    <i class="fa fa-globe"></i> ${(activeOrg.pseudoId)!}</a>
-                <ul class="dropdown-menu">
-                    <#if activeOrg?has_content>
-                        <li><a href="${sri.buildUrl('/apps/setPrefGoLast').url}?preferenceKey=ACTIVE_ORGANIZATION&preferenceValue=">Clear Active Organization</a></li>
+            <details id="active-org-menu" class="menu">
+                <summary id="active-org-menu-link" title="Organization">
+                    <i class="fa fa-globe"></i> ${WebUtilities.encodeHtml(activeOrg?.pseudoId ?? 'Organization')}</summary>
+                <ul>
+                    <#if activeOrg>
+                        <li><a href="${WebUtilities.encodeHtml(sri.buildUrl('/apps/setPrefGoLast').url)}?preferenceKey=ACTIVE_ORGANIZATION&amp;preferenceValue=">Clear Active Organization</a></li>
                     </#if>
-                    <#if userOrgList?has_content><#list userOrgList as userOrg>
-                        <li><a href="${sri.buildUrl('/apps/setPrefGoLast').url}?preferenceKey=ACTIVE_ORGANIZATION&preferenceValue=${userOrg.partyId}">${userOrg.pseudoId}: ${userOrg.organizationName}</a></li>
-                    </#list></#if>
+                    <#list userOrgList ?? [] as userOrg>
+                        <li><a href="${WebUtilities.encodeHtml(sri.buildUrl('/apps/setPrefGoLast').url)}?preferenceKey=ACTIVE_ORGANIZATION&amp;preferenceValue=${WebUtilities.encodeHtml(encodeURIComponent(userOrg.partyId))}">${WebUtilities.encodeHtml(userOrg.pseudoId ?? '')}: ${WebUtilities.encodeHtml(userOrg.organizationName ?? '')}</a></li>
+                    </#list>
                 </ul>
-            </div>
-            <script>$("#navbar-buttons").append($("#active-org-menu")); $('#active-org-menu-link').tooltip({ placement:'bottom', trigger:'hover' });</script>
+            </details>
+            <script>
+                (() => {
+                    const menu = document.getElementById('active-org-menu');
+                    const navbar = document.getElementById('navbar-buttons');
+                    if (menu && navbar) navbar.append(menu);
+                })();
+            </script>
             ]]></text></render-mode>
         </widgets></section>
         <subscreens-panel id="MarbleErpPanel" type="popup" title="Marble ERP"/>

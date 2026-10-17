@@ -1,4 +1,10 @@
-# Moqui Marble ERP
+# MrMarbleERP — Marble ERP for MR-Moqui
+
+This fork ports MarbleERP's shell, dashboard and setup expressions to MR-Moqui's JavaScript runtime. The component name remains `MarbleERP`. Use **mr-mantle-udm**, **mr-mantle-usl** and **MrSimpleScreens**, with a current MR-Moqui build; Java FOP is not required.
+
+See [migration status and limits](MIGRATION-STATUS.md) and [build/test/browser commands](test/README.md). Open `/apps/marble` for HTML or `/qapps/marble` for QVT. The upstream Java/Gradle instructions below are retained for reference and are not the build instructions for this fork.
+
+## Upstream Marble ERP
 
 [![license](http://img.shields.io/badge/license-CC0%201.0%20Universal-blue.svg)](https://github.com/moqui/MarbleERP/blob/master/LICENSE.md)
 [![release](http://img.shields.io/github/release/moqui/MarbleERP.svg)](https://github.com/moqui/MarbleERP/releases)
