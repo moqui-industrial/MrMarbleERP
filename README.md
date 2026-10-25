@@ -1,4 +1,4 @@
-# MrMarbleERP — Marble ERP for MR-Moqui
+# ARCHIVED - MrMarbleERP - Marble ERP for MR-Moqui - Merged into `mr-marble`
 
 This fork ports MarbleERP's shell, dashboard and setup expressions to MR-Moqui's JavaScript runtime. The component name remains `MarbleERP`. Use **mr-mantle-udm**, **mr-mantle-usl** and **MrSimpleScreens**, with a current MR-Moqui build; Java FOP is not required.
 
